@@ -65,11 +65,7 @@
                         <a href="#" class="nav-link">Conctat</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" type="button" class="btn btn-light" class="nav-link">
-                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Post
-                        </a>
-                    </li>
+                    
 
                     </ul>
 
