@@ -22,7 +22,9 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
+      <th scope="col">Photo</th>
       <th scope="col">Name</th>
+      <th scope="col">Gender</th>
       <th scope="col">Email</th>
       <th scope="col">Role</th>
       <th scope="col">Created</th>
@@ -32,7 +34,9 @@
   <tbody>
     <tr>
       <th scope="row">{{$user->id}}</th>
+    <td><img src="{{$user->photo->file}}" alt="" id="user-avatar"></td>
     <td>{{$user->name}}</td>
+    <td>{{$user->gender}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->role->name}}</td>
       <td>{{$user->created_at->diffForHumans()}}</td>

@@ -28,7 +28,7 @@
                       <i class="fa fa-user-o fa-3x"></i>
                     </span>
                     
-                    <h4>100 users</h4>
+                    <h4>{{$users}} users</h4>
                   </div>
 
                 </div>

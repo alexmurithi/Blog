@@ -21,6 +21,8 @@ body{
 #main-nav{
     background: #343A40 !important;
 
+      
+
     & .navbar-nav li > a {
         color: skyblue;
         font-weight: bold;
@@ -137,6 +139,16 @@ body{
         background: rgba(0, 0, 0, 0.5);
         cursor: pointer;
     }
+}
+
+ img#user-avatar{
+    
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;;
+    
+
 }
 
 

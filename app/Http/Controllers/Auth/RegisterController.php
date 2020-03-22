@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Photo;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'gender'=>['required'],
         ]);
     }
 
@@ -64,10 +66,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if($data['gender'] ==1){
+           $file ='/images/male-avatar.jpg';
+           $gender ='Male';
+        }else{
+            $file ='/images/female-avatar.png';
+            $gender ='Female';
+        }
+
+        $photo =Photo::create([
+          'file'=>$file
+        ]);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
+            'photo_id'=>$photo->id,
+            'gender'=>$gender,
         ]);
     }
 }
