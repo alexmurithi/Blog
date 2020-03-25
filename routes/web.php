@@ -19,18 +19,37 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::resource('/admin/users','AdminUsersController');
+
+
+Route::group(['middleware'=>['Admin','auth']],function(){
+    Route::get('admin',[
+        'uses'=>'AdminController@index',
+        'as'=>'admin.index'
+    ]);
+    
+    Route::get('admin/users',[
+        'uses'=>'AdminUsersController@index',
+        'as'=>'admin.users'
+    ]);
+    
+    Route::get('admin/users/edit/{id}',[
+        'as'=>'admin.users.edit',
+        'uses'=>'AdminUsersController@edit'
+    ]);
+    
+    Route::get('admin/users/create',[
+        'as'=>'admin.users.create',
+        'uses'=>'AdminUsersController@create'
+    ]);
+});
 
 
 
-Route::get('admin',[
-    'uses'=>'AdminController@index',
-    'as'=>'admin.index'
-]);
+Route::get('/', [
+    'uses'=>'HomeController@index',
+    'as'=>'welcome'
+    ]);
 
-Route::get('admin/users',[
-    'uses'=>'AdminController@users',
-    'as'=>'admin.users'
-]);
 
 

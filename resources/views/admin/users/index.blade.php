@@ -1,25 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-sm-12 col-xs-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page"><a href="#">All Users</a></li>
-                  <li class="breadcrumb-item"><a href="#">Create User</a></li>
-                  
-                </ol>
-              </nav>
-        </div>
-    </div>
+    
 
     <div class="row">
-<div class="col-lg-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
 
     @if($users)
-<table class="table table-dark">
-  <thead>
+    <table id="datatable" class="table table-dark">
+   <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Photo</th>
@@ -40,6 +30,15 @@
       <td>{{$user->email}}</td>
       <td>{{$user->role->name}}</td>
       <td>{{$user->created_at->diffForHumans()}}</td>
+    <td>
+        
+    <a href="{{route('admin.users.edit',$user->id)}}" id="mymodal" type="button" class="btn btn-success">
+            <i class="fa fa-edit"></i>
+        </a>
+
+          
+    </td>
+      <td><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
     </tr>
     
     
@@ -59,8 +58,22 @@
         
     </div>
     
+    {{$users->links()}}
+
+    
 </div>
 
 
-   
+  
 @endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     var table =$('#datatable').DataTable();
+     console.log(table);
+  });
+</script>
+
+@stop

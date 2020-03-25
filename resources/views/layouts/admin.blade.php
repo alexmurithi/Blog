@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -25,7 +26,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <h1>
-                    <span class="badge badge-pill badge-light">{{ config('app.name', 'Laravel') }} <i class="fa fa-file-text" aria-hidden="true"></i></span>  
+                    <span class="badge badge-pill badge-info">{{ config('app.name', 'Laravel') }} <i class="fa fa-file-text" aria-hidden="true"></i></span>  
                 </h1> 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -117,13 +118,31 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="container">
+            <div class="row" style="margin-top:10px">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><a href="#">All Users</a></li>
+                          <li class="breadcrumb-item"><a href="#">Create User</a></li>
+                          
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <main class="py-4">
+        @yield('content')
+    </main>
+    
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
+    
     
 
 </body>

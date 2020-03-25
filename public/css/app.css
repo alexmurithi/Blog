@@ -13926,8 +13926,13 @@ a.text-dark:focus {
   clip: auto;
 }
 
+* {
+  color: #1E1E1E;
+}
+
 body {
-  background: #1E1E1E;
+  background: ghostwhite;
+  color: #1E1E1E;
 }
 
 .badge {
@@ -13935,11 +13940,11 @@ body {
 }
 
 #main-nav {
-  background: #343A40 !important;
+  background: white !important;
 }
 
 #main-nav .navbar-nav li > a {
-  color: skyblue;
+  color: #1E1E1E;
   font-weight: bold;
   text-transform: uppercase;
   font-family: cursive;
@@ -13948,11 +13953,12 @@ body {
 .card {
   padding: 0;
   margin: 10px;
-  background: #343A40;
+  background: white;
+  color: #1E1E1E;
 }
 
 .card .card-header {
-  background: #343A40;
+  background: white;
   border-radius: 0px;
   padding: 4px;
 }
@@ -13977,6 +13983,7 @@ body {
 
 .card .card-footer {
   border-radius: 0px;
+  background: white;
 }
 
 #search-box {
@@ -14000,7 +14007,7 @@ body {
 }
 
 #dropdown-categories .dropdown-menu {
-  background: #343A40;
+  background: white;
 }
 
 #dropdown-categories .dropdown-menu a:hover {
@@ -14008,7 +14015,7 @@ body {
 }
 
 #dropdown-categories a {
-  color: skyblue;
+  color: #1E1E1E;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -14045,5 +14052,25 @@ img#user-avatar {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#card-edit-img .card-body {
+  padding: 10px;
+  margin: 0 auto;
+}
+
+#card-edit-img #user-edit-img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#file-label {
+  cursor: pointer;
+}
+
+#file {
+  display: none;
 }
 

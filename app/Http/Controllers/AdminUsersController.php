@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 
-class AdminController extends Controller
+class AdminUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +15,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users =User::count();
-        return view('admin.index',compact('users'));
+        $users =User::Paginate(15);
+        return view('admin.users.index',compact('users'));
     }
-   
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +26,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $roles =Role::pluck('name','id')->all();
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
@@ -60,7 +60,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user =User::findOrFail($id);
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -85,10 +86,4 @@ class AdminController extends Controller
     {
         //
     }
-   
-    public function users(){
-        $users =User::Paginate(15);
-        return view('admin.users',compact('users'));
-    }
-   
 }
