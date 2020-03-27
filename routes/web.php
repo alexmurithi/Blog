@@ -13,18 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::resource('/admin/users','AdminUsersController');
 
 
-Route::group(['middleware'=>['Admin','auth']],function(){
+Route::group(['middleware'=>'web'],function(){
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/', [
+        'uses'=>'HomeController@index',
+        'as'=>'welcome'
+        ]);
+        
+});
+
+Route::group(['middleware'=>['admin']],function(){
+    Route::resource('/admin/users','AdminUsersController');
+
     Route::get('admin',[
-        'uses'=>'AdminController@index',
+        'uses'=>'AdminUsersController@dashboard',
         'as'=>'admin.index'
     ]);
     
@@ -46,10 +58,7 @@ Route::group(['middleware'=>['Admin','auth']],function(){
 
 
 
-Route::get('/', [
-    'uses'=>'HomeController@index',
-    'as'=>'welcome'
-    ]);
+
 
 
 

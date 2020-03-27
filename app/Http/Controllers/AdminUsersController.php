@@ -13,6 +13,9 @@ class AdminUsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
+
     public function index()
     {
         $users =User::Paginate(15);
@@ -86,4 +89,10 @@ class AdminUsersController extends Controller
     {
         //
     }
+    public function dashboard(){
+        $users =User::Paginate(15);
+        return view('admin.users',compact('users'));
+    }
+
+    
 }
