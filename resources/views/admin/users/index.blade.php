@@ -17,6 +17,7 @@
       <th scope="col">Gender</th>
       <th scope="col">Email</th>
       <th scope="col">Role</th>
+      <th scope="col">Status</th>
       <th scope="col">Created</th>
     </tr>
   </thead>
@@ -26,9 +27,10 @@
       <th scope="row">{{$user->id}}</th>
     <td><img src="{{$user->photo->file}}" alt="" id="user-avatar"></td>
     <td>{{$user->name}}</td>
-    <td>{{$user->gender}}</td>
+    <td>{{$user->gender==1 ? "Male" :"Female"}} </td>
       <td>{{$user->email}}</td>
       <td>{{$user->role->name}}</td>
+    <td>{{$user->isActive==1 ? "Active" : "Not Active"}}</td>
       <td>{{$user->created_at->diffForHumans()}}</td>
     <td>
         

@@ -13926,13 +13926,8 @@ a.text-dark:focus {
   clip: auto;
 }
 
-* {
-  color: white;
-}
-
 body {
   background: ghostwhite;
-  color: white;
 }
 
 .badge {
@@ -13966,7 +13961,7 @@ body {
 .card .card-body {
   padding: 8px;
   margin: 0;
-  color: ghostwhite;
+  color: grey;
 }
 
 .card .card-body .post-img-box a > img {

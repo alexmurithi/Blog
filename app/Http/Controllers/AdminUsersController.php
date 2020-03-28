@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use App\Photo;
+use Hash;
 
 class AdminUsersController extends Controller
 {
@@ -41,7 +43,28 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input =$request->all();
+
+        if($file =$request->file('photo_id')){
+           $name =time() .$file->getClientOriginalName();
+
+           
+           $file->move('images',$name);
+
+           $photo =Photo::create([
+               'file'=>$name,
+           ]);
+
+          $input['photo_id']=$photo->id;
+        }
+
+        $input['password'] =Hash::make($request->password);
+        User::create($input);
+//
+//
+         return redirect('/admin/users');
+
+    
     }
 
     /**
@@ -64,7 +87,8 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user =User::findOrFail($id);
-        return view('admin.users.edit',compact('user'));
+        $roles =Role::pluck('name','id')->all();
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**

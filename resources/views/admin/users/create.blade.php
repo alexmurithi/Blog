@@ -56,7 +56,7 @@
                                <div class="form-group">
                                 {!!Form::label('password','Confirm Password')!!}
 
-                                {!!Form::password('password',['class'=>'form-control'])!!}
+                                {!!Form::password('confirm-password',['class'=>'form-control'])!!}
                                </div>
                             
                            </div>
@@ -79,15 +79,16 @@
 
                            <div class="col-6">
                                <div class="form-group">
-                                   <label for="file" id="user-file-upload" id="file-label">
-                                    <i class="fa fa-camera fa-2x"></i>
-                                   </label>
-                                   <input type="file" name="file" id="file">
+                                {!!Form::label('photo_id','File')!!}
+                                {!!Form::file('photo_id',['class'=>'form-control'])!!}
                                </div>
+                               
                            </div>
                        </div>
-
-                    
+                         <div class="form-group">
+                            {!!Form::submit('Submit',['class'=>'btn btn-primary text-center'])!!}
+                         </div>
+                           
                    
                  {!!Form::close()!!}
                 </div>
