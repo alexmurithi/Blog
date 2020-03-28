@@ -89,9 +89,11 @@ class AdminUsersController extends Controller
     {
         //
     }
+
     public function dashboard(){
         $users =User::Paginate(15);
-        return view('admin.users',compact('users'));
+        return view('admin.index',compact('users'));
+        // return $users;
     }
 
     

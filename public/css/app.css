@@ -13927,12 +13927,12 @@ a.text-dark:focus {
 }
 
 * {
-  color: #1E1E1E;
+  color: white;
 }
 
 body {
   background: ghostwhite;
-  color: #1E1E1E;
+  color: white;
 }
 
 .badge {
@@ -14072,5 +14072,9 @@ img#user-avatar {
 
 #file {
   display: none;
+}
+
+#datatable {
+  color: white;
 }
 

@@ -10,13 +10,13 @@
 @import '~font-awesome/scss/font-awesome';
 
 *{
-    color:#1E1E1E;
+    color:white;
 }
 
 body{
     // background: #1E1E1E;
     background:ghostwhite;
-    color:#1E1E1E;
+    color:white;
     
 }
 
@@ -177,6 +177,9 @@ body{
 }
 #file{
     display: none;
+}
+#datatable{
+    color: white;
 }
 
 
