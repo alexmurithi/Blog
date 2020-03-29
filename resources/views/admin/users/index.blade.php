@@ -6,7 +6,12 @@
 
     <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
+        @if(Session::has('user_created'))
+           <div class="alert alert-success">
+           <strong>{{session('user_created')}}</strong>
+           </div>
 
+        @endif
     @if($users)
     <table id="datatable" class="table table-dark">
    <thead>

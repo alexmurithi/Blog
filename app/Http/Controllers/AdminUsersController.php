@@ -7,6 +7,10 @@ use App\User;
 use App\Role;
 use App\Photo;
 use Hash;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\AdminUsersRequest;
+use App\Http\Requests\AdminUsersUpdateRequest;
+
 
 class AdminUsersController extends Controller
 {
@@ -20,7 +24,7 @@ class AdminUsersController extends Controller
 
     public function index()
     {
-        $users =User::Paginate(15);
+        $users =User::Paginate(3);
         return view('admin.users.index',compact('users'));
     }
 
@@ -41,7 +45,7 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminUsersRequest $request)
     {
         $input =$request->all();
 
@@ -59,9 +63,18 @@ class AdminUsersController extends Controller
         }
 
         $input['password'] =Hash::make($request->password);
-        User::create($input);
+        User::create([
+            'name'=>$input['name'],
+            'email'=>$input['email'],
+            'gender'=>$input['gender'],
+            'password'=>$input['password'],
+            'role_id'=>$input['role_id'],
+            'isActive'=>$input['is_active'],
+            'photo_id'=>$input['photo_id']
+        ]);
 //
 //
+       Session::flash('user_created','User has been created successfully');
          return redirect('/admin/users');
 
     
@@ -98,9 +111,16 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminUsersUpdateRequest $request, $id)
     {
-        //
+        
+      $user =User::find($id);
+      $input =$request->all();
+       $user->update($input)
+      ;
+    
+
+      return redirect('/admin/users');
     }
 
     /**

@@ -4,8 +4,23 @@
  
 <div class="container">
     <div class="row">
+
+        
+
         <div class="col col-lg-12 col-md-12">
+            @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                     <div class="alert alert-danger">
+                         <strong>{{$error}}</strong>
+                     </div>
+                     
+                @endforeach
+            </ul>
+         @endif
+
             <div class="card">
+                
                 <div class="card-header">
                     <h2 class="text-center">
                         <span class="badge badge-light">Create User</span>
@@ -73,7 +88,7 @@
                                <div class="form-group">
                                 {!!Form::label('status','Status')!!}
 
-                                {!!Form::select('is_active',[0=>'Not active',1=>'Active'],0,['class'=>'form-control'])!!}
+                                {!!Form::select('isActive',[0=>'Not active',1=>'Active'],0,['class'=>'form-control'])!!}
                                </div>
                            </div>
 

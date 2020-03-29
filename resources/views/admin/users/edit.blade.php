@@ -30,12 +30,13 @@
                     </div>
 
                     <div class="form-group">
-                     {!!Form::label('status','Status')!!}
+                     {!! Form::label('isActive','Status') !!}
 
-                     {!!Form::select('is_active',[0=>'Not active',1=>'Active'],null,['class'=>'form-control'])!!}
-                    </div>
+                    {!!Form::select('isActive',[0=>'Inactive',1=>'Active'],null,['class'=>'form-control'])!!}
+                 </div>
                      
                     {!!Form::submit('Edit User',['class'=>'btn btn-dark'])!!}
+
                     {!! Form::close()!!}
                 </div>
              </div>
