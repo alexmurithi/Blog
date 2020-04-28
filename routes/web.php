@@ -35,7 +35,9 @@ Auth::routes();
 Route::group(['middleware'=>['admin']],function(){
     Route::resource('/admin/users','AdminUsersController');
     Route::resource('/admin/posts','AdminPostsController');
+    Route::resource('/admin/categories','AdminCategoriesController');
 
+    //ADMIN USERS//
     Route::get('admin',[
         'uses'=>'AdminUsersController@dashboard',
         'as'=>'admin.index'
@@ -76,6 +78,24 @@ Route::group(['middleware'=>['admin']],function(){
         'as'=>'admin.posts.edit',
         'uses'=>'AdminPostsController@edit'
     ]);
+
+    //ADMIN CATEGORIES//
+
+    Route::get('admin/categories',[
+        'as'=>'admin.categories',
+        'uses'=>'AdminCategoriesController@index'
+    ]);
+
+    Route::get('admin/categories/create',[
+        'as'=>'admin.categories.create',
+        'uses'=>'AdminCategoriesController@create'
+    ]);
+
+    Route::get('admin/categories/{id}/edit',[
+        'as'=>'admin.categories.edit',
+        'uses'=>'AdminCategoriesController@edit'
+    ]);
+
 });
 
 
