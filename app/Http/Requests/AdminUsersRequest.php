@@ -30,7 +30,8 @@ class AdminUsersRequest extends FormRequest
             'gender'=>'required',
             'password'=>'required',
             'role_id'=>'required',
-            'is_active'=>'required',
+            'isActive'=>'required',
+            'photo_id'=>'required'
         ];
     }
 }

@@ -5,36 +5,37 @@
 @import 'variables';
 
 // Bootstrap
+
+
+
 @import '~bootstrap/scss/bootstrap';
 
 @import '~font-awesome/scss/font-awesome';
 
 
-
 body{
     // background: #1E1E1E;
     background:ghostwhite;
-    
-    
+
+
 }
 
 .badge{
     margin: auto 10px !important;
 }
 
-#main-nav{
-    background: white !important;
 
-      
 
-    & .navbar-nav li > a {
-        color: #1E1E1E;;
+
+
+    .navbar-nav li.nav-item > a.nav-link {
+        color: white !important;
         font-weight: bold;
         text-transform: uppercase;
         font-family: cursive;
-        
+
     }
-}
+
 
 
 .card{
@@ -50,13 +51,13 @@ body{
         border-radius: 0px;
         padding: 4px;
     }
-    
+
     .card-body{
         padding: 8px;
         margin: 0;
         color:grey;
 
-        
+
         & .post-img-box a > img{
             width: 100%;
             height: 250px;
@@ -92,10 +93,10 @@ body{
 
 #recent-posts{
     & ul.list-group.list-group-flush{
-        
+
 
         & li{
-            
+
             background: white;
             border-left:2px solid #343A40;
         }
@@ -103,21 +104,35 @@ body{
 }
 
 #dropdown-categories {
-    & .dropdown-menu{
-        background: white;
 
-        & a:hover{
-            background: ghostwhite;
+    & a.nav-link{
+        text-transform: uppercase;
+
+        font-weight: bold;
+
+        &:visited{
+            color:white;
         }
-
+        &:link{
+            color:white;
+        }
     }
-   & a{
-    color: #1E1E1E;
-    font-weight: bold;
-    text-transform: uppercase;
-    
+
 }
 
+#dropdown{
+
+    & a.dropdown-item{
+        color: gray;
+
+         &:link{
+          color:gray;
+         }
+
+        &:hover{
+            color:skyblue;
+        }
+    }
 }
 
 #admin-content-box{
@@ -134,12 +149,12 @@ body{
         height: 100%;
         color: white;
         background: rgba(0, 0, 0, 0.2);
-        
+
         & h4{
             padding: 10px;
-           
+
         }
-        
+
     }
 
     & .content:hover{
@@ -149,19 +164,19 @@ body{
 }
 
  img#user-avatar{
-    
+
         width:50px;
         height: 50px;
         border-radius: 50%;
         object-fit: cover;;
-    
+
 }
 #card-edit-img{
     & .card-body{
         padding: 10px;
         margin: 0 auto;
     }
-    
+
     & #user-edit-img{
         width: 150px;
         height: 150px;
@@ -181,6 +196,22 @@ body{
 }
 
 
+#wrapper{
 
+    & .sidebar{
+        width: 18rem;
+        background: blue;
+    }
+    & .rightside{
+        width: 100%;
+    }
+}
+
+
+.rounded-circle{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
 
 

@@ -20,7 +20,7 @@ class AdminUsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   
+
 
     public function index()
     {
@@ -52,7 +52,7 @@ class AdminUsersController extends Controller
         if($file =$request->file('photo_id')){
            $name =time() .$file->getClientOriginalName();
 
-           
+
            $file->move('images',$name);
 
            $photo =Photo::create([
@@ -69,7 +69,7 @@ class AdminUsersController extends Controller
             'gender'=>$input['gender'],
             'password'=>$input['password'],
             'role_id'=>$input['role_id'],
-            'isActive'=>$input['is_active'],
+            'isActive'=>$input['isActive'],
             'photo_id'=>$input['photo_id']
         ]);
 //
@@ -77,7 +77,7 @@ class AdminUsersController extends Controller
        Session::flash('user_created','User has been created successfully');
          return redirect('/admin/users');
 
-    
+
     }
 
     /**
@@ -113,14 +113,11 @@ class AdminUsersController extends Controller
      */
     public function update(AdminUsersUpdateRequest $request, $id)
     {
-        
+
       $user =User::find($id);
       $input =$request->all();
-       $user->update($input)
-      ;
+     return $input;
     
-
-      return redirect('/admin/users');
     }
 
     /**
@@ -135,10 +132,20 @@ class AdminUsersController extends Controller
     }
 
     public function dashboard(){
-        $users =User::Paginate(15);
+        $users =User::count();
         return view('admin.index',compact('users'));
         // return $users;
     }
 
-    
+    public function updatePhoto(Request $request,$id){
+        $user =User::find($id);
+        $input =$request->all();
+
+        return $input;
+
+
+
+    }
+
+
 }

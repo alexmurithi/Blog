@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,12 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="main-nav">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    <h1>
-                    <span class="badge badge-pill badge-light">{{ config('app.name', 'Laravel') }} <i class="fa fa-file-text" aria-hidden="true"></i></span>  
-                </h1> 
+                    {{ config('app.name', 'TatTips') }}
+                </h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -48,16 +48,18 @@
                             <a class="dropdown-toggle nav-link" href="#"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Categories
                             </a>
-                          
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdown">
+                                @foreach($categories as $category)
+                            <a class="dropdown-item nav-link" href="#" >{{$category->name}}</a>
+                                @endforeach
+
+
                             </div>
                           </div>
                        </li>
 
-                      
+
                     <li class="nav-item">
                         <a href="#" class="nav-link">About Us</a>
                     </li>
@@ -65,7 +67,7 @@
                         <a href="#" class="nav-link">Conctat</a>
                     </li>
 
-                    
+
 
                     </ul>
 
@@ -81,7 +83,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
 
-                                
+
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -91,9 +93,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    
+
                                     <a href="#" class="dropdown-item">{{Auth::user()->name}}</a>
-                                    
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -106,11 +108,7 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" type="button" class="btn btn-light" class="nav-link">
-                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Post
-                                </a>
-                            </li>
+
                         @endguest
                     </ul>
                 </div>
@@ -124,7 +122,10 @@
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    
+
 
 </body>
 </html>
+
+
+

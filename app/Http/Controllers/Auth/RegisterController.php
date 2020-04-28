@@ -68,10 +68,10 @@ class RegisterController extends Controller
     {
         if($data['gender'] ==1){
            $file ='/images/male-avatar.jpg';
-           $gender ='Male';
+           $gender =1;
         }else{
             $file ='/images/female-avatar.png';
-            $gender ='Female';
+            $gender =2;
         }
 
         $photo =Photo::create([

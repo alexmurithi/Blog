@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -14,12 +15,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users =User::count();
+        $users =User::count()->all();
         return view('admin.index',compact('users'));
     }
-   
 
-    
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -85,10 +86,12 @@ class AdminController extends Controller
     {
         //
     }
-   
+
     public function users(){
         $users =User::Paginate(15);
         return view('admin.users',compact('users'));
     }
-   
+
+    
+
 }

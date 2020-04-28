@@ -13934,12 +13934,8 @@ body {
   margin: auto 10px !important;
 }
 
-#main-nav {
-  background: white !important;
-}
-
-#main-nav .navbar-nav li > a {
-  color: #1E1E1E;
+.navbar-nav li.nav-item > a.nav-link {
+  color: white !important;
   font-weight: bold;
   text-transform: uppercase;
   font-family: cursive;
@@ -14001,18 +13997,29 @@ body {
   border-left: 2px solid #343A40;
 }
 
-#dropdown-categories .dropdown-menu {
-  background: white;
-}
-
-#dropdown-categories .dropdown-menu a:hover {
-  background: ghostwhite;
-}
-
-#dropdown-categories a {
-  color: #1E1E1E;
-  font-weight: bold;
+#dropdown-categories a.nav-link {
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+#dropdown-categories a.nav-link:visited {
+  color: white;
+}
+
+#dropdown-categories a.nav-link:link {
+  color: white;
+}
+
+#dropdown a.dropdown-item {
+  color: gray;
+}
+
+#dropdown a.dropdown-item:link {
+  color: gray;
+}
+
+#dropdown a.dropdown-item:hover {
+  color: skyblue;
 }
 
 #admin-content-box {
@@ -14071,5 +14078,21 @@ img#user-avatar {
 
 #datatable {
   color: white;
+}
+
+#wrapper .sidebar {
+  width: 18rem;
+  background: blue;
+}
+
+#wrapper .rightside {
+  width: 100%;
+}
+
+.rounded-circle {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
