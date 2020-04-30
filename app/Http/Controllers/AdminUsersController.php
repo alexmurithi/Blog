@@ -49,33 +49,42 @@ class AdminUsersController extends Controller
     {
         $input =$request->all();
 
+        $admins =User::where('role_id',1)->count();
+
+      
+
         if($file =$request->file('photo_id')){
-           $name =time() .$file->getClientOriginalName();
+            $name =time() .$file->getClientOriginalName();
 
 
-           $file->move('images',$name);
+            $file->move('images',$name);
 
-           $photo =Photo::create([
-               'file'=>$name,
-           ]);
+            $photo =Photo::create([
+                'file'=>$name,
+            ]);
 
-          $input['photo_id']=$photo->id;
-        }
+           $input['photo_id']=$photo->id;
+         }
 
-        $input['password'] =Hash::make($request->password);
-        User::create([
-            'name'=>$input['name'],
-            'email'=>$input['email'],
-            'gender'=>$input['gender'],
-            'password'=>$input['password'],
-            'role_id'=>$input['role_id'],
-            'isActive'=>$input['isActive'],
-            'photo_id'=>$input['photo_id']
-        ]);
-//
-//
-       Session::flash('user_created','User has been created successfully');
-         return redirect('/admin/users');
+
+
+         $input['password'] =Hash::make($request->password);
+         User::create([
+             'name'=>$input['name'],
+             'email'=>$input['email'],
+             'gender'=>$input['gender'],
+             'password'=>$input['password'],
+             'role_id'=>$input['role_id'],
+             'isActive'=>$input['isActive'],
+             'photo_id'=>$input['photo_id']
+         ]);
+ //
+ //
+        Session::flash('user_created','User has been created successfully');
+          return redirect('/admin/users');
+
+
+
 
 
     }
@@ -111,13 +120,27 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminUsersUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $user =User::find($id);
+        $input =$request->all();
 
-      $user =User::find($id);
-      $input =$request->all();
-     return $input;
-    
+        if($file =$request->file('photo_id')){
+            $name =time().$file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo =Photo::create(['file'=>$name]);
+
+            $input['photo_id']= $photo->id;
+        }
+
+        $user->update($input);
+
+        Session::flash('user_updated','User has been updated successfully!');
+
+        return redirect('admin/users');
+
+
+
     }
 
     /**
@@ -128,7 +151,11 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user =User::findOrFail($id)->delete();
+
+        Session::flash('user_deleted','User has been deteled successfully!');
+
+        return redirect('admin.users');
     }
 
     public function dashboard(){

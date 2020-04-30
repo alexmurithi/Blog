@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h4>Create Category</h4>
             </div>
@@ -21,7 +21,7 @@
                  </div>
 
                  <div class="form-group">
-                     {!!Form::submit('Create Category',['class'=>'btn btn-primary'])!!}
+                     {!!Form::submit('Create Category',['class'=>'btn btn-success'])!!}
                  </div>
 
                 {!!Form::close()!!}

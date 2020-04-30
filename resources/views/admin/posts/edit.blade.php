@@ -5,7 +5,7 @@
    <div class="container-fluid">
       <div class="row">
           <div class="col col-lg-12">
-              <div class="panel panel-primary">
+              <div class="panel panel-info">
                   <div class="panel-heading">Edit Post</div>
                   <div class="panel-body">
 
@@ -13,7 +13,7 @@
     {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostsController@update',$post->id],'files'=>true]) !!}
 
     <div>
-        <img src="{{$post->photo->file}}" alt="" height="200px"  class="img-responsive img-rounded" >
+        <img src="{{$post->photo->file}}" alt=""  class=" img-rounded" width="100%" height="400px">
         </div>
 
          <div class="form-group">
@@ -33,7 +33,7 @@
 
         <div class="form-group">
             {!! Form::label('photo_id','Photo') !!}
-            {!! Form::file('photo_id',null) !!}
+            {!! Form::file('photo_id',['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
@@ -44,13 +44,9 @@
 
     {!!Form::close()!!}
 
-    {!! Form::close() !!}
 
-        {!! Form::open(['method'=>'DELETE','action'=>['AdminPostsController@destroy',$post->id]]) !!}
 
-        {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
 
-        {!! Form::close() !!}
 
                   </div>
               </div>

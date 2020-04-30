@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
- 
-<div class="container">
+
+<div class="container-fluid">
     <div class="row">
 
-        
+
 
         <div class="col col-lg-12 col-md-12">
             @if($errors->any())
@@ -14,20 +14,17 @@
                      <div class="alert alert-danger">
                          <strong>{{$error}}</strong>
                      </div>
-                     
+
                 @endforeach
             </ul>
          @endif
 
-            <div class="card">
-                
-                <div class="card-header">
-                    <h2 class="text-center">
-                        <span class="badge badge-light">Create User</span>
-                    </h2>
-                  
+            <div class="panel panel-info">
+
+                <div class="panel-heading">
+                    <h4>Create User</h4>
                 </div>
-                <div class="card-body">
+                <div class="panel-body">
 
                     {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
                        <div class="form-row">
@@ -46,14 +43,14 @@
                             </div>
                            </div>
                        </div>
-                    
+
                        <div class="form-row">
                            <div class="col-6">
                                <div class="form-group">
                                 {!!Form::label('email','Email')!!}
                                 {!!Form::email('email',null,['class'=>'form-control'])!!}
                                </div>
-                            
+
                            </div>
 
                            <div class="col-6">
@@ -62,7 +59,7 @@
 
                                 {!!Form::password('password',['class'=>'form-control'])!!}
                                </div>
-                            
+
                            </div>
                        </div>
 
@@ -73,7 +70,7 @@
 
                                 {!!Form::password('confirm-password',['class'=>'form-control'])!!}
                                </div>
-                            
+
                            </div>
                            <div class="col-6">
                              <div class="form-group">
@@ -97,14 +94,14 @@
                                 {!!Form::label('photo_id','File')!!}
                                 {!!Form::file('photo_id',['class'=>'form-control'])!!}
                                </div>
-                               
+
                            </div>
                        </div>
                          <div class="form-group">
-                            {!!Form::submit('Submit',['class'=>'btn btn-primary text-center'])!!}
+                            {!!Form::submit('Submit',['class'=>'btn btn-success'])!!}
                          </div>
-                           
-                   
+
+
                  {!!Form::close()!!}
                 </div>
             </div>

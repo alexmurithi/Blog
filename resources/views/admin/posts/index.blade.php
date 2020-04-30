@@ -11,13 +11,13 @@
                  </div>
               @endif
 
-                <div class="panel panel-primary">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         Posts
                     </div>
 
                     <div class="panel-body">
-                        @if($posts)
+                        @if(count($posts)>0)
                         <table class="table table-dark">
                             <thead>
                               <tr>
@@ -26,7 +26,7 @@
                                 <th scope="col">CATEGORY</th>
                                 <th scope="col">TITLE</th>
                                 <th scope="col">BODY</th>
-                                <th scope="col">IMAGE</th>
+
                                 <th scope="col">CREATED</th>
                                 <th scope="col">UPDATED</th>
                               </tr>
@@ -50,7 +50,7 @@
                               <td>{{$post->category ? $post->category->name : "Uncategorized"}}</td>
                               <td>{{$post->title}}</td>
                               <td>{{$post->body}}</td>
-                              <td><img src="{{$post->photo->file}}" alt="" class="img-responsive" width="100px"></td>
+
                               <td>{{$post->created_at->diffForHumans()}}</td>
                               <td>{{$post->updated_at->diffForHumans()}}</td>
                             <td><a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
@@ -60,7 +60,7 @@
                             <td>
                                 {!! Form::open(['method'=>'DELETE','action'=>['AdminPostsController@destroy',$post->id]]) !!}
 
-                                {!! Form::submit('',['class'=>'btn fa fa-trash']) !!}
+                                {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
 
                                  {!! Form::close() !!}
                             </td>
@@ -69,8 +69,8 @@
                             </tbody>
                         </table>
                           @else
-                           <div class="alert alert-warning">
-                               <strong>No Posts Were Found! Please Check later</strong>
+                           <div class="alert alert-danger">
+                           <strong>No Posts Were Found! Please Check later or <a href="{{route('admin.posts.create')}}">Click here</a> to Create a Post!</strong>
                            </div>
                         @endif
 
@@ -82,23 +82,28 @@
 
          <div class="row">
              <div class="col col-lg-12">
-                 <div class="panel panel-primary">
+                 <div class="panel panel-info">
                     <div class="panel-heading">
                         Recent Posts
                     </div>
                     <div class="panel-body">
+                        @if(count($recent_posts)>0)
                         @foreach($recent_posts as $recent_post)
+
                         <div class="media">
-                            <div class="media-left media-top">
-                            <img src="{{$recent_post->photo->file}}" class="media-object" style="width:60px">
-                            </div>
+
                             <div class="media-body">
                             <h4 class="media-heading">{{$recent_post->title}}</h4>
-                              <p>{{$recent_post->body}}</p>
-                            </div>
+
                           </div>
                       @endforeach
 
+                      @else
+
+                      <div class="alert alert-danger">
+                      <strong>No Recent Posts Found! Please Check Later or <a href="{{route('admin.posts.create')}}">Click here</a> to Create a Post!</strong>
+                      </div>
+                  @endif
                     </div>
                  </div>
              </div>

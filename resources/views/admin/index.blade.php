@@ -5,42 +5,106 @@
     <div class="row">
 
         <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
-            <div class=" panel panel-default">
-                <div class="panel-body users">
-                    <span>Users</span>
-                <h4>{{$users}}</h4>
-                </div>
 
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-user fa-2x"></i>
+                         Users
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$users}}
+                    </span>
+
+                </div>
             </div>
         </div>
 
         <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
-            <div class=" panel panel-default">
-                <div class="panel-body users">
-                    <span>Users</span>
-                <h4>{{$users}}</h4>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-user fa-2x"></i>
+                         POSTS
+                    </span>
                 </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$posts}}
+                    </span>
 
+                </div>
             </div>
         </div>
 
         <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
-            <div class=" panel panel-default">
-                <div class="panel-body users">
-                    <span>Users</span>
-                <h4>{{$users}}</h4>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-folder fa-2x"></i>
+                         CATEGORIES
+                    </span>
                 </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$categories}}
+                    </span>
 
+                </div>
             </div>
         </div>
 
         <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
-            <div class=" panel panel-default">
-                <div class="panel-body users">
-                    <span>Users</span>
-                    <h4>300</h4>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-comments fa-2x"></i>
+                         COMMENTS
+                    </span>
                 </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$posts}}
+                    </span>
 
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-reply fa-2x"></i>
+                         REPLIES
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$posts}}
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-lg-6 col-sm-12 col-md-6 col-xs-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span class="badge badge-info">
+                        <i class="fa fa-camera fa-2x"></i>
+                         MEDIA/PHOTOS
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <span class="badge badge-dark">
+                        {{$posts}}
+                    </span>
+
+                </div>
             </div>
         </div>
 

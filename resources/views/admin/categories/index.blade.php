@@ -21,7 +21,7 @@
         </div>
       @endif
 
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h4> Categories</h4>
             </div>
@@ -49,7 +49,7 @@
                       <td>{{$category->description ? $category->description : "No description"}}</td>
 
 
-                      <td><a href="{{route('admin.categories.edit',$category->id)}}" class="btn btn-info"><i class="fa fa-edit"></i></a></td>
+                      <td><a href="{{route('admin.categories.edit',$category->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a></td>
                       <td>
                         {!! Form::open(['method'=>'DELETE','action'=>['AdminCategoriesController@destroy',$category->id]]) !!}
 

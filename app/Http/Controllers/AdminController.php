@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -15,8 +16,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users =User::count()->all();
-        return view('admin.index',compact('users'));
+        $users =User::count();
+        $posts =Post::count();
+        $categories =Category::count();
+        return view('admin.index',compact('users','posts','categories'));
     }
 
 
@@ -92,6 +95,6 @@ class AdminController extends Controller
         return view('admin.users',compact('users'));
     }
 
-    
+
 
 }

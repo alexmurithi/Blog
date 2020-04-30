@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="panel panel-primary">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <header>
                             <h4>Create Post</h4>
@@ -27,10 +27,17 @@
                          </div>
 
                          <div class="form-group">
+                            {!!Form::label('body','Body')!!}
                              {!!Form::textarea('body',null,['rows'=>8,'class'=>'form-control'])!!}
                          </div>
 
-                         <div class="form-group">
+
+                      <div class="form-group">
+                          {!!Form::label('photo_id','Photo')!!}
+                          {!!Form::file('photo_id',['class'=>'form-control'])!!}
+                      </div>
+
+                         {{-- <div class="form-group">
                              <label for="photo_id" name="photo_id">
 
                                 <i class="fa fa-camera fa-2x"></i>
@@ -39,10 +46,10 @@
 
                              <input type="file" id="photo_id" name="photo_id">
 
-                         </div>
+                         </div> --}}
 
                          <div class="form-group">
-                             {!!Form::submit('Save Post',['class'=>'btn btn-primary'])!!}
+                             {!!Form::submit('Save Post',['class'=>'btn btn-success'])!!}
                          </div>
 
                         {!!Form::close()!!}
@@ -52,10 +59,5 @@
         </div>
     </div>
 
-    <style>
-        #photo_id{
-            display: none;
-        }
 
-    </style>
 @stop

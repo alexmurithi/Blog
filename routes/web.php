@@ -19,18 +19,15 @@ Auth::routes();
 
 
 
-// Route::group(['middleware'=>'web'],function(){
+Route::group(['middleware'=>'web'],function(){
 
     Route::get('/', function () {
         return view('welcome');
     });
 
-    Route::get('/', [
-        'uses'=>'HomeController@index',
-        'as'=>'welcome'
-        ]);
 
-// });
+
+});
 
 Route::group(['middleware'=>['admin']],function(){
     Route::resource('/admin/users','AdminUsersController');
@@ -48,15 +45,15 @@ Route::group(['middleware'=>['admin']],function(){
         'as'=>'admin.users'
     ]);
 
-    Route::get('admin/users/edit/{id}',[
+    Route::get('admin/users/{id}/edit',[
         'as'=>'admin.users.edit',
         'uses'=>'AdminUsersController@edit'
     ]);
 
-    Route::get('admin/users/edit/{id}',[
-        'as'=>'admin.users.edit',
-        'uses'=>'AdminUsersController@updatePhoto'
-    ]);
+    // Route::get('admin/users/{id}/edit',[
+    //     'as'=>'admin.users.edit',
+    //     'uses'=>'AdminUsersController@updatePhoto'
+    // ]);
 
     Route::get('admin/users/create',[
         'as'=>'admin.users.create',
@@ -94,6 +91,11 @@ Route::group(['middleware'=>['admin']],function(){
     Route::get('admin/categories/{id}/edit',[
         'as'=>'admin.categories.edit',
         'uses'=>'AdminCategoriesController@edit'
+    ]);
+
+    Route::get('admin',[
+        'as'=>'admin',
+        'uses'=>'AdminController@index'
     ]);
 
 });

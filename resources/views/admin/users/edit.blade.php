@@ -3,82 +3,67 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
        <div class="row">
-          <div class="col col-lg-8 col-sm-8 col-xs-12">
-             <div class="card">
-               <div class="card-header">
-                  <h2 class="text-center"><span class="badge badge-primary">{{$user->name}}</span></h2>
 
-                  </div>
-                <div class="card-body">
-                    {!! Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@update',$user->id],'files'=>true]) !!}
 
+         <div class="col col-lg-3 col-md-3">
+             <div class="panel panel-info">
+                 <div class="panel-heading">User Photo</div>
+                 <div class="panel-body">
+<img src="{{$user->photo ? $user->photo->file : "No photo"}}" class="img-responsive img-rounded" alt="" height="100px">
+                 </div>
+             </div>
+         </div>
+
+         <div class="col col-lg-9 col-md-9">
+             <div class="panel panel-info">
+                 <div class="panel-heading">Edit this User</div>
+                 <div class="panel-body">
+
+                    {!!Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@update',$user->id],'files'=>true])!!}
                     <div class="form-group">
-                     {!!Form::label('name','Name')!!}
-                     {!!Form::text('name',null,['class'=>'form-control'])!!}
+                        {!! Form::label('name','Name') !!}
+                        {!! Form::text('name',null,['class'=>'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                     {!!Form::label('email','Email')!!}
-                     {!!Form::email('email',null,['class'=>'form-control'])!!}
+                        {!! Form::label('email','Email') !!}
+                        {!! Form::email('email',null,['class'=>'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                     {!!Form::label('role_id','Role')!!}
-                     {!!Form::select('role_id',[''=>'Choose Role'] +$roles ,null,['class'=>'form-control'])!!}
+                        {!! Form::label('photo_id','Photo') !!}
+                        {!! Form::file('photo_id',['class'=>'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                     {!! Form::label('isActive','Status') !!}
+                        {!! Form::label('role_id','Role') !!}
+                        {!! Form::select('role_id',$roles, null,['class'=>'form-control']) !!}
+                    </div>
 
-                    {!!Form::select('isActive',[0=>'Inactive',1=>'Active'],null,['class'=>'form-control'])!!}
+                    <div class="form-group">
+                        {!! Form::label('is_active','Status') !!}
+                        {!! Form::select('is_active',array(1=>'Active',0=>'Inactive'),null,['class'=>'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::submit('Edit User',['class'=>'btn btn-success']) !!}
+                        {!!Form::close()!!}
+                    </div>
+
+
+
                  </div>
-
-                    {!!Form::submit('Edit User',['class'=>'btn btn-dark'])!!}
-
-                    {!! Form::close()!!}
-                </div>
-             </div>
-          </div>
-          <div class="col col-lg-4 col-sm-4 xs col-12">
-             <div class="card" style="width: 18rem;">
-               {!! Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@updatePhoto',$user->id],'files'=>true]) !!}
-               <img class="card-img-top" src="{{$user->photo->file}}" alt="Card image cap">
-
-                <div class="card-body">
-
-                 <div class="form-group">
-                  {!!Form::file('photo_id',['class'=>'form-control'])!!}
-                 </div>
-
-                 <div class="form-group">
-                  {!!Form::submit('Change Image',['class'=>'btn btn-dark'])!!}
-                 </div>
-
-
-
-                  {!! Form::close()!!}
-                </div>
              </div>
 
-             <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                <h4><span class="badge badge-primary">Change password for {{$user->name}}</span></h4>
-                </div>
-                <div class="card-body">
-                  {!! Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@update',$user->id],'files'=>true]) !!}
-                     {!!Form::password('password',['class'=>'form-control'])!!}
 
-                </div>
-                <div class="card-footer">
-                  {!!Form::submit('Change password',['class'=>'btn btn-dark'])!!}
-                  {!!Form::close()!!}
-                </div>
-             </div>
+         </div>
 
-          </div>
+
+
        </div>
+
     </div>
 
 @stop
