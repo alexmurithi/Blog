@@ -49,7 +49,7 @@
                                 </td>
                               <td>{{$post->category ? $post->category->name : "Uncategorized"}}</td>
                               <td>{{$post->title}}</td>
-                              <td>{{$post->body}}</td>
+                            <td>{{\Illuminate\Support\Str::limit($post->body,100)}}</td>
 
                               <td>{{$post->created_at->diffForHumans()}}</td>
                               <td>{{$post->updated_at->diffForHumans()}}</td>

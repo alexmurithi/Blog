@@ -33,7 +33,7 @@
     <div class="panel panel-info">
         <div class="panel panel-heading">Users</div>
     <div class="panel-body">
-        <table id="datatable" class="table table-dark">
+        <table  class="table table-dark">
             <thead>
              <tr>
                <th scope="col">Id</th>

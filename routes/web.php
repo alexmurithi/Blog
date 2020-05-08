@@ -21,9 +21,14 @@ Auth::routes();
 
 Route::group(['middleware'=>'web'],function(){
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
+
+    Route::get('/',[
+        'as'=>'/',
+        'uses'=>'PostsController@index'
+    ]);
 
 
 
@@ -97,6 +102,10 @@ Route::group(['middleware'=>['admin']],function(){
         'as'=>'admin',
         'uses'=>'AdminController@index'
     ]);
+
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+        });
 
 });
 

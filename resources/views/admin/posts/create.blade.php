@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+
+@include('includes.tinyeditor')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -28,7 +31,7 @@
 
                          <div class="form-group">
                             {!!Form::label('body','Body')!!}
-                             {!!Form::textarea('body',null,['rows'=>8,'class'=>'form-control'])!!}
+                             {!!Form::textarea('body',null,['rows'=>12,'class'=>'form-control'])!!}
                          </div>
 
 
