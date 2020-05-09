@@ -85,6 +85,11 @@ Route::group(['middleware'=>['admin']],function(){
         'uses'=>'AdminPostsController@edit'
     ]);
 
+    Route::get('/posts/{id}',[
+        'as'=>'posts.index',
+        'uses'=>'PostsController@show'
+    ]);
+
     //ADMIN CATEGORIES//
 
     Route::get('admin/categories',[
