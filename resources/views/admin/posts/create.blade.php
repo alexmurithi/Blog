@@ -29,6 +29,11 @@
                             {!!Form::select('category_id',[''=>'Choose Category'] + $categories ,null,['class'=>'form-control'])!!}
                          </div>
 
+                        <div class="form-group">
+                            {!!Form::label('description','Description')!!}
+                            {!!Form::text('description',null,['class'=>'form-control'])!!}
+                        </div>
+
                          <div class="form-group">
                             {!!Form::label('body','Body')!!}
                              {!!Form::textarea('body',null,['rows'=>12,'class'=>'form-control'])!!}

@@ -11,11 +11,13 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import '~font-awesome/scss/font-awesome';
+@import '~normalize.css/normalize.css';
 
 
 body{
     // background: #1E1E1E;
-    background:ghostwhite;
+    background:white;
+    color:black !important;
 
 
 }

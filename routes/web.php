@@ -21,16 +21,20 @@ Auth::routes();
 
 Route::group(['middleware'=>'web'],function(){
 
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
+     Route::get('/home',[
+         'as'=>'home',
+         'uses'=>'HomeController@index'
+     ]);
 
     Route::get('/',[
         'as'=>'/',
         'uses'=>'PostsController@index'
     ]);
 
-
+    Route::get('/posts/{id}',[
+        'as'=>'posts.index',
+        'uses'=>'PostsController@show'
+    ]);
 
 });
 

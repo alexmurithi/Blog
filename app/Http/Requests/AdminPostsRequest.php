@@ -25,8 +25,9 @@ class AdminPostsRequest extends FormRequest
     {
         return [
             'title'=>'required',
+            'description'=>'required|min:8',
             'category_id'=>'required',
-            'body'=>'required|min:3'
+            'body'=>'required|min:8'
         ];
     }
 }

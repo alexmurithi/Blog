@@ -53,8 +53,8 @@
 
                               <td>{{$post->created_at->diffForHumans()}}</td>
                               <td>{{$post->updated_at->diffForHumans()}}</td>
-                            <td><a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
-
+                            <td><a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a></td>
+                            <td><a href="{{route('posts.index',$post->id)}}" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
 
 
                             <td>

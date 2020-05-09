@@ -8,7 +8,7 @@
     <div class="row">
         {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostsController@update',$post->id],'files'=>true]) !!}
 
-        <div class="col col-lg-9 col-md-9">
+        <div class="col col-lg-12 col-md-12">
             <div class="panel panel-info">
                 <div class="panel-heading">Edit Post</div>
 
@@ -19,8 +19,13 @@
                  {!! Form::text('title',null,['class'=>'form-control']) !!}
                 </div>
 
+                <div class="form-group">
+                    {!! Form::label('description','Description') !!}
+                    {!! Form::text('description',null,['class'=>'form-control']) !!}
+                </div>
+
                <div class="form-group">
-                {!! Form::label('body','Description') !!}
+                {!! Form::label('body','Body') !!}
                 {!! Form::textarea('body',null,['class'=>'form-control','rows'=>12]) !!}
                </div>
 
@@ -33,7 +38,7 @@
           </div>
          </div>
 
-        <div class="col col-lg-3 col-md-3">
+        <div class="col col-lg-12 col-md-12">
            <div class="panel panel-info">
                 <div class="panel-heading">ThumbNail</div>
 
