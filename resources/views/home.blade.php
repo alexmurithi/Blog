@@ -14,7 +14,7 @@
 
                                     <img class="mr-3" src="{{$post->photo ? $post->photo->file :null}}" alt="Generic Photo" width="100px">
                                     <div class="media-body text-muted">
-                                        <a href="{{route('posts.index',$post->id)}}"><h3 class="mt-0 text-dark">{{$post->title}}</h3></a>
+                                        <a href="{{route('posts.index',$post->slug)}}"><h3 class="mt-0 text-dark">{{$post->title}}</h3></a>
                                         {{$post->description}}
                                         <div class="flex d-flex flex-row justify-content-start my-2">
                                      <span class="badge badge-dark">

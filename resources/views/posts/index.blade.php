@@ -31,6 +31,7 @@
                                   <i class="fa fa-folder"></i>
                                   {{$post->category->name}}
                               </span>
+
                           </div>
                       </div>
                   </div>
@@ -63,9 +64,81 @@
                   </div>
               </div>
           </div>
+
+      </div>
+
           <div class="col col-lg-3 col-md-3">
+              <div class="card p-3">
+                  <div class="card-body">
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="Search.." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                          <div class="input-group-append">
+                              <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="card" style="margin-bottom: 32px;">
+                  <div class="card-header text-white bg-dark border rounded-0 border-dark" style="padding: 5px;">
+                      <h5 class="text-white">Categories</h5>
+                  </div>
+                  <div class="card-body">
+
+                      @if(count($categories)>0)
+                          <ul class="list-group text-dark">
+                              @foreach($categories as $category)
+                                  <li class="list-group-item text-dark">
+
+                                      <a class="text-uppercase text-dark link-categories" href="#" style="font-family: Acme, sans-serif;">
+                                    <span>
+                                        <i class="fa fa-folder" style="padding: 0px 8px;"></i>
+                                    </span>
+                                          {{$category->name}}
+                                      </a>
+                                  </li>
+                              @endforeach
+
+                          </ul>
+                      @endif
+                  </div>
+              </div><!--end CATEGORIES CARD-->
+
+              @if(count($posts)>0)
+                  <div class="card" style="margin-bottom: 32px;">
+                      <div class="card-header text-white bg-dark border-dark" style="padding: 5px;">
+                          <h5 class="text-white">Recent Posts</h5>
+                      </div>
+                      <div class="card-body">
+
+                          <ul class="list-group text-dark">
+                              @foreach($posts as $post)
+
+                                  <li class="list-group-item d-flex flex-column">
+                                          <a href="{{route('posts.index',$post->slug)}}">
+                                          <h6 class="text-dark" style="font-family: Almendra, serif;">
+                                              {{$post->title}}
+                                          </h6>
+                                          </a>
+                                      <div class="flex d-flex flex-row justify-content-start my-2">
+                                          @if($post->user->isAdmin())
+                                          <span class="badge badge-dark">
+                                              <i class="fa fa-user"></i>
+                                              Admin
+                                          </span>
+                                              @endif
+                                      </div>
+
+                                  </li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  </div>
+              @endif
 
           </div>
-      </div>
+  </div><!--end row-->
   </div>
+
 @stop

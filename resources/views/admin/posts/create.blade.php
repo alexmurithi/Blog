@@ -31,19 +31,21 @@
 
                         <div class="form-group">
                             {!!Form::label('description','Description')!!}
-                            {!!Form::text('description',null,['class'=>'form-control'])!!}
+                            {!!Form::textarea('description',null,['class'=>'form-control','rows'=>5])!!}
+                        </div>
+
+                        <div class="form-group">
+                            {!!Form::label('photo_id','ThumbNail')!!}
+                            {!!Form::file('photo_id',['class'=>'form-control'])!!}
                         </div>
 
                          <div class="form-group">
                             {!!Form::label('body','Body')!!}
-                             {!!Form::textarea('body',null,['rows'=>12,'class'=>'form-control'])!!}
+                             {!!Form::textarea('body',null,['rows'=>12,'class'=>'bodyTextArea form-control'])!!}
                          </div>
 
 
-                      <div class="form-group">
-                          {!!Form::label('photo_id','Photo')!!}
-                          {!!Form::file('photo_id',['class'=>'form-control'])!!}
-                      </div>
+
 
                          {{-- <div class="form-group">
                              <label for="photo_id" name="photo_id">

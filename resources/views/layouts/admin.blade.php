@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 
 <head>
 
@@ -29,8 +29,9 @@
 
 
 </head>
+<body id="admin-page">
 
-<body id="admin-page" style="padding-top:0;">
+
 
 <div id="wrapper">
 
@@ -43,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="{{route('/')}}" style="color: white">Home</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -56,15 +57,17 @@
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
-                    {{-- <i class="fa fa-user fa-fw"></i> --}}
+
                 <img src="{{Auth::user()->photo->file}}" alt="" width="30px" height="30px">
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user" style="height:auto; margin-top:auto;">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i>{{Auth::user()->name}}</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li class="divider"></li>
+                    <li><a href="{{route('/')}}">Home Page</a>
                     </li>
+
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
@@ -80,26 +83,6 @@
 
 
 
-
-        {{--<ul class="nav navbar-nav navbar-right">--}}
-        {{--@if(auth()->guest())--}}
-        {{--@if(!Request::is('auth/login'))--}}
-        {{--<li><a href="{{ url('/auth/login') }}">Login</a></li>--}}
-        {{--@endif--}}
-        {{--@if(!Request::is('auth/register'))--}}
-        {{--<li><a href="{{ url('/auth/register') }}">Register</a></li>--}}
-        {{--@endif--}}
-        {{--@else--}}
-        {{--<li class="dropdown">--}}
-        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>--}}
-        {{--<ul class="dropdown-menu" role="menu">--}}
-        {{--<li><a href="{{ url('/auth/logout') }}">Logout</a></li>--}}
-
-        {{--<li><a href="{{ url('/admin/profile') }}/{{auth()->user()->id}}">Profile</a></li>--}}
-        {{--</ul>--}}
-        {{--</li>--}}
-        {{--@endif--}}
-        {{--</ul>--}}
 
 
 
@@ -330,29 +313,52 @@
 
 
 
+
+
 <!-- Page Content -->
 <div id="page-wrapper" style=" padding:10px;">
        @yield('content')
 </div>
 <!-- /#page-wrapper -->
 
-</div>
+
+
 <!-- /#wrapper -->
+
+<style>
+    .navbar.navbar-default{
+        background: #111111;
+        color:white;
+    }
+
+    .navbar-default.sidebar{
+        /*background: #2E9FFF;*/
+        background: #343A40;
+        color:white;
+        position: absolute;
+        top: 10px;
+    }
+    .navbar-default.sidebar #side-menu li a{
+        color: white;
+    }
+    /*.navbar-default.sidebar #side-menu li a:active, .navbar-default.sidebar #side-menu li a:link{*/
+    /*    background: #2E9FFF;*/
+    /*}*/
+    .navbar-default.sidebar #side-menu li a.active{
+        background: #7FB0FC;
+    }
+    .navbar-default.sidebar #side-menu li a:hover{
+        background: #2E9FFF;
+    }
+    .navbar-default.sidebar #side-menu li a:link{
+        background: #343A40;
+    }
+</style>
+
 
 <script src="{{asset('js/libs.js')}}"></script>
 
-<script>
-    $('#postEditModal').on('show.bs.modal', function (event) {
-        console.log('open');
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-</script>
+
 
 <!-- jQuery -->
 
@@ -366,4 +372,4 @@
 
 </body>
 
-</html>
+

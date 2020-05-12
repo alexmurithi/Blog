@@ -21,12 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md  shadow-sm" id="navBar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <h1>
-                    {{ config('app.name', 'TatTips') }}
-                </h1>
+                   <h3 style="font-family: 'Apple Color Emoji'">
+                    {{ config('app.name') }}
+                </h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto" id="navBar-ul">
                         <li class="nav-item">
                             <a href="#" class="nav-link">Dashboard
                             </a>
@@ -51,7 +51,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdown">
                                 @foreach($categories as $category)
-                            <a class="dropdown-item nav-link" href="#" >{{$category->name}}</a>
+                            <a class="dropdown-item nav-link" href="{{route('posts.category.show',$category->name)}}" >{{$category->name}}</a>
                                 @endforeach
 
 
@@ -72,7 +72,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" id="navBar-right-ul">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -94,7 +94,15 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a href="#" class="dropdown-item">{{Auth::user()->name}}</a>
+                                    <a href="#" class="dropdown-item">{{Auth::user()->name}}
+                                        @if(Auth::user()->isAdmin())
+                                        <span class="badge badge-dark">Admin</span>
+                                            @endif
+                                    </a>
+
+                                    @if(Auth::user()->isAdmin())
+                                    <a href="{{route('admin')}}" class="dropdown-item">Admin Panel</a>
+                                    @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -123,8 +131,11 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-
+    <footer>
+        @yield('footer')
+    </footer>
 </body>
+
 </html>
 
 

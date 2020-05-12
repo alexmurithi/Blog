@@ -36,6 +36,11 @@ Route::group(['middleware'=>'web'],function(){
         'uses'=>'PostsController@show'
     ]);
 
+    Route::get('/posts/category/{id}',[
+        'as'=>'posts.category.show',
+        'uses'=>'PostsCategoryController@show'
+    ]);
+
 });
 
 Route::group(['middleware'=>['admin']],function(){
@@ -85,10 +90,10 @@ Route::group(['middleware'=>['admin']],function(){
         'uses'=>'AdminPostsController@edit'
     ]);
 
-    Route::get('/posts/{id}',[
-        'as'=>'posts.index',
-        'uses'=>'PostsController@show'
-    ]);
+//    Route::get('/posts/{id}',[
+//        'as'=>'posts.index',
+//        'uses'=>'PostsController@show'
+//    ]);
 
     //ADMIN CATEGORIES//
 

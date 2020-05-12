@@ -14,19 +14,27 @@
 
                              <img class="mr-3" src="{{$post->photo ? $post->photo->file :null}}" alt="Generic Photo" width="100px">
                              <div class="media-body text-muted">
-                                 <a href="{{route('posts.index',$post->id)}}"><h3 class="mt-0 text-dark">{{$post->title}}</h3></a>
+                                 <a href="{{route('posts.index',$post->slug)}}"><h3 class="mt-0 text-dark">{{$post->title}}</h3></a>
                                  {{$post->description}}
                                  <div class="flex d-flex flex-row justify-content-start my-2">
+
+                                     @if($post->user->isAdmin())
                                      <span class="badge badge-dark">
+                                         <i class="fa fa-user"></i>
+                                        Admin
+                                     </span>
+                                     @else
+                                         <span class="badge badge-light">
                                          <i class="fa fa-user"></i>
                                          {{$post->user->name}}
                                      </span>
+                                      @endif
 
                                      <span class="badge badge-light">
                                          <i class="fa fa-clock-o"></i>
                                          {{$post->created_at->diffForHumans()}}
                                      </span>
-                                     <span class="badge badge-info">
+                                     <span class="badge badge-success">
                                          <i class="fa fa-folder"></i>
                                          {{$post->category->name}}
                                      </span>
@@ -68,7 +76,7 @@
 
                    <div class="card" style="margin-bottom: 32px;">
                     <div class="card-header text-white bg-dark border rounded-0 border-dark" style="padding: 5px;">
-                        <h5>Categories</h5>
+                        <h5 class="text-white">Categories</h5>
                     </div>
                     <div class="card-body">
 
@@ -94,22 +102,32 @@
                     @if(count($posts)>0)
                   <div class="card" style="margin-bottom: 32px;">
                     <div class="card-header text-white bg-dark border-dark" style="padding: 5px;">
-                        <h5>Recent Posts</h5>
+                        <h5 class="text-white">Recent Posts</h5>
                     </div>
                     <div class="card-body">
 
                         <ul class="list-group text-dark">
-                            @foreach($posts as $post)
+                            @foreach($recent_posts as $post)
 
                             <li class="list-group-item d-flex flex-column">
-                                <a href="#">
-                                    <h6 class="text-muted mb-0" style="font-family: Almendra, serif;">
+                                <a href="{{route('posts.index',$post->id)}}">
+                                    <h6 class="text-dark" style="font-family: Almendra, serif;">
                                         {{$post->title}}
                                     </h6>
-                                    <span class="text-primary mt-0" style="font-size: 13px;font-family: Andika, sans-serif;">
-                                        By {{$post->user->name}}
-                                    </span>
                                 </a>
+                                <div class="flex d-flex flex-row justify-content-start my-2">
+                                    @if($post->user->isAdmin())
+                                        <span class="badge badge-dark">
+                                              <i class="fa fa-user"></i>
+                                              Admin
+                                          </span>
+                                        <span class="badge badge-success">
+                                             <i class="fa fa-folder"></i>
+                                            {{$post->category->name}}
+                                        </span>
+                                    @endif
+                                </div>
+
                             </li>
                                 @endforeach
                         </ul>

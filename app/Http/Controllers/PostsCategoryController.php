@@ -6,7 +6,7 @@ use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class PostsCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    $categories =Category::all();
-        $recent_posts =Post::orderBy('created_at','desc')->take(5)->get();
-         $posts =Post::orderBy('created_at','desc')->get();
-        return view('welcome',compact('posts','categories','recent_posts'));
+    {
+        //
     }
 
     /**
@@ -47,17 +45,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-//        views($post)->record();
-        $post =Post::where('slug',$slug)->first();
-        $categories =Category::all();
-        $recent_posts =Post::orderBy('created_at','desc')->take(5)->get();
-        $posts =Post::all();
 
-//        return views('posts.show',compact('post'));
-        return view('posts.index',compact('post','categories','recent_posts','posts'));
-//        return $post;
+       $categoryPostUser =Category::where('name',$id)->with('post.user')->get();
+        $recent_posts =Post::orderBy('created_at','desc')->take(5)->get();
+//       return  response()->json($categoryPostUser[0]);
+      return view('posts.category.show',compact('categoryPostUser','recent_posts'));
     }
 
     /**
