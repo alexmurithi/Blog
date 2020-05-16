@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\ContactMessage;
 use App\Post;
 use Illuminate\Http\Request;
 use App\User;
@@ -93,6 +94,11 @@ class AdminController extends Controller
     public function users(){
         $users =User::Paginate(15);
         return view('admin.users',compact('users'));
+    }
+
+    public function contactMessages(){
+        $messages =ContactMessage::orderBy('created_at','desc')->get();
+        return view('admin.messages',compact('messages'));
     }
 
 

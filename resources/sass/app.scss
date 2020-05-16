@@ -26,25 +26,26 @@ body{
 
 
 
+
 }
 
 #navBar{
-    background: #222222 !important;
+    background: white !important;
 
 
 
     & #navBar-ul li a, & #navBar-right-ul li a{
-        color:white !important;
+        color:#222222 !important;
         font-family:Apple !important;
         font-weight:bold !important;
     }
 
 }
 #dropdown, .dropdown-menu-right{
-    background: #222222;
+    //background: #f1f7fc;
     margin-top: 20px;
     & a.dropdown-item:hover{
-        background: #343A40;
+        //background: #343A40;
     }
 }
 
@@ -76,12 +77,12 @@ h1,h2,h3,h4,h5{
     margin:10px;
     background: white;
     color:#1E1E1E;
-    // background: #343A40;
+     //background: #343A40;
 
     .card-header{
-        // background: #343A40;
+         //background: #343A40;
         background: white;
-        border-radius: 0px;
+        //border-radius: 0px;
         padding: 4px;
     }
 
@@ -246,5 +247,178 @@ h1,h2,h3,h4,h5{
     height: 60px;
     object-fit: cover;
 }
+/*CONTACT PAGE*/
+
+.contact-clean{
+    background: #f1f7fc;
+    padding: 80px 0;
+
+    & form{
+        max-width: 480px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 4px;
+        color: #505e6c;
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    }
+}
+
+.testimonials-clean{
+    color: #313437;
+    background-color: #eef4f7;
+
+}
+.testimonials-clean .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+.testimonials-clean h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: inherit;
+}
+.testimonials-clean .people {
+    padding: 50px 0 20px;
+}
+
+@media (min-width:768px) {
+    .testimonials-clean .item {
+        height: 220px;
+    }
+}
+
+.testimonials-clean .item {
+    margin-bottom: 32px;
+}
+
+.testimonials-clean .item .box {
+    padding: 30px;
+    background-color: #fff;
+    position: relative;
+}
+
+.testimonials-clean .item .box:after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    bottom: -24px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-width: 12px 15px;
+    border-top-color: #fff;
+}
+.testimonials-clean .item .description {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.testimonials-clean p {
+    color: #7d8285;
+}
+
+.testimonials-clean .item .author {
+    margin-top: 28px;
+    padding-left: 25px;
+}
+
+.testimonials-clean .item img {
+    max-width: 40px;
+    width:40px;
+    height: 40px;
+    float: left;
+    margin-right: 12px;
+    margin-top: -5px;
+    object-fit: cover;
+    border-radius: 50% !important;
+}
+.testimonials-clean .item .name {
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: inherit;
+}
+
+/*NEWS LETTER SUBSCRIPTION */
+.newsletter-subscribe {
+    color: #313437;
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.newsletter-subscribe .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto 25px;
+}
+
+.newsletter-subscribe form {
+    justify-content: center;
+}
+
+.newsletter-subscribe form .form-control {
+    background: #eff1f4;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 9px;
+    height: 45px;
+    margin-right: 10px;
+    min-width: 250px;
+}
+
+.newsletter-subscribe form .btn:active {
+    transform: translateY(1px);
+}
+
+.newsletter-subscribe form .btn:hover {
+    opacity: 1;
+}
+
+.newsletter-subscribe form .btn-success {
+
+    color: #fff;
+    outline: none !important;
+}
+
+.newsletter-subscribe form .btn {
+    padding: 16px 32px;
+    border: none;
+    //background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+}
+.my-footer{
+    width: 100%;
+    background: #222222;
+    color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

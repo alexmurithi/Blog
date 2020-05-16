@@ -20,6 +20,7 @@
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.1",
         "nesbot/carbon": "^2.31",
+        "spatie/laravel-newsletter": "^4.8",
         "unisharp/laravel-filemanager": "^2.0"
     },
     "require-dev": {

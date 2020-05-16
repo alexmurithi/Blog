@@ -64,7 +64,7 @@
                         <a href="#" class="nav-link">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Conctat</a>
+                        <a href="{{route('contact')}}" class="nav-link">Conctat Us</a>
                     </li>
 
 
@@ -76,7 +76,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link btn btn-outline-success"  href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -126,14 +126,18 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            @yield('footer')
+        </footer>
     </div>
+
+
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-    <footer>
-        @yield('footer')
-    </footer>
+
 </body>
 
 </html>

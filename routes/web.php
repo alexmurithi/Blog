@@ -41,6 +41,18 @@ Route::group(['middleware'=>'web'],function(){
         'uses'=>'PostsCategoryController@show'
     ]);
 
+    //CONTACT US PAGE//
+    Route::get('/contact',[
+        'as'=>'contact',
+        'uses'=>'HomeController@contact'
+    ]);
+
+    Route::post('/contact',[
+        'as'=>'contact',
+        'uses'=>'HomeController@store'
+    ]);
+
+
 });
 
 Route::group(['middleware'=>['admin']],function(){
@@ -120,6 +132,11 @@ Route::group(['middleware'=>['admin']],function(){
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
         });
+
+    Route::get('admin/messages',[
+        'as'=>'admin.messages',
+        'uses'=>'AdminController@contactMessages'
+    ]);
 
 });
 
